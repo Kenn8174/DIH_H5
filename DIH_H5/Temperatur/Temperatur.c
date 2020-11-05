@@ -96,14 +96,14 @@ void Temperatur_ReadOnce(int loop)
 	unsigned int row = 90;
 	
 	
-	DHT_WakeUp();
+	DHT_WakeUp();														/* Sender et signal ud til DHT11'eren for at se om der er forbindelse */
 	int array[5][8];
-	if (DHT_Response())
+	if (DHT_Response())													/* Hvis der er forbindelse til en DHT11'ere, så bliver koden i IF'en kørt */
 	{
-		DHT_Decode_Data(array);
+		DHT_Decode_Data(array);											/* Henter dataen fra DHT11'eren og gemmer den i et MULTIDIMENSIONELT array */
 		
-		int temp = ConvertToDecimal(array, 3);
-		int hum = ConvertToDecimal(array, 1);
+		int temp = ConvertToDecimal(array, 3);							/* Temperaturen og fugtigheden bliver gemt i en variabel, */
+		int hum = ConvertToDecimal(array, 1);							/* men inden skal den lige konventeres til decimal */
 		
 		Temperatur_display(temp, hum);
 		
@@ -127,9 +127,9 @@ void PushToAPI(int temperatur, int humidity)
 	char _buffer[150];
 	uint8_t Connect_Status;
 	while(!ESP8266_Begin());
-	ESP8266_WIFIMode(BOTH_STATION_AND_ACCESPOINT);					/* 3 = Both (AP and STA) */
-	ESP8266_ConnectionMode(SINGLE);									/* 0 = Single; 1 = Multi */
-	ESP8266_ApplicationMode(NORMAL);								/* 0 = Normal Mode; 1 = Transperant Mode */
+	ESP8266_WIFIMode(BOTH_STATION_AND_ACCESPOINT);						/* 3 = Both (AP and STA) */
+	ESP8266_ConnectionMode(SINGLE);										/* 0 = Single; 1 = Multi */
+	ESP8266_ApplicationMode(NORMAL);									/* 0 = Normal Mode; 1 = Transperant Mode */
 	while(ESP8266_connected() == ESP8266_NOT_CONNECTED_TO_AP)			// If not connected to WIFI and API, create a connection
 	{
 		ESP8266_JoinAccessPoint(SSID, PASSWORD);

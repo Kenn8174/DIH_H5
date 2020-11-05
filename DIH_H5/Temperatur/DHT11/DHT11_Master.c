@@ -11,72 +11,79 @@
 #include <util/delay.h>
 #include <stdio.h>
 
-//Used for the initial Wakeup/connection between the DHT11 and the MCU
 void DHT_WakeUp(void)
 {
-	clear_bit(DHT_PORT, DHT_BIT);	//Pulls the bit HIGH
-	set_bit(DHT_DDR, DHT_BIT);		//Pulls the bit LOW
-	_delay_ms(18);					//Delay to let the DHT Detect the signal
-	set_bit(DHT_PORT, DHT_BIT);		//Enabels buildin Pullup resistance
-	clear_bit(DHT_DDR, DHT_BIT);	//Clears the bit so it will go HIGH via the pullup
+	clear_bit(DHT_PORT, DHT_BIT);											/* Sætter biten til OUTPUT */
+	set_bit(DHT_DDR, DHT_BIT);												/* Sætter biten til logisk HØJ */
+	_delay_ms(18);															/* Venter 18 mikrosekunder for at give bedsked til DHT11'eren at der sker noget */
+	set_bit(DHT_PORT, DHT_BIT);												/* Sætter biten til logisk LAV */
+	clear_bit(DHT_DDR, DHT_BIT);											/* Sætter biten til INPUT */
 }
 
-//Checks if the DHT Responds
 int DHT_Response(void)
 {
 	double counter = 0;
-	//Waits for the DHT11 to response
-	while(bit_is_set(DHT_PIN, DHT_BIT))
+	
+	while(bit_is_set(DHT_PIN, DHT_BIT))										/* Venter på at DHT11'eren giver svar */
 	{
 		_delay_us(2);
 		counter += 2;
-		//If the DHT11 takes over 60 us the connection timeouts
-		if (counter >= 60)
-		return 0;
+		
+		if (counter >= 60)													/* Hvis det tager over 60 mikrosekunder og DHT11'eren ikke svarer, sker der en connection timeout, derefter bliver der returneret 0 */
+		{
+			return 0;
+		}
 	}
-	//Waits for the DHT11 response to end
-	while(bit_is_clear(DHT_PIN, DHT_BIT))
+	
+	while(bit_is_clear(DHT_PIN, DHT_BIT))									/* Venter på at DHT11'eren er færdig med at give et svar */
 	{
+		
 	}
-	//Returns when the DHT11 gets ready to transmitt data
-	while(bit_is_set(DHT_PIN, DHT_BIT))
+	
+	while(bit_is_set(DHT_PIN, DHT_BIT))										/* Når DHT11'eren har svaret bliver der retuneret 1 */
 	{
 		return 1;
 	}
 }
 
 //Decodes the data that the DHT11 sends to the MCU
-void DHT_Decode_Data(int (*array)[8])
+void DHT_Decode_Data(int array[8])
 {
-	//Waits for the DHT11 to start transmitting
-	while(bit_is_set(DHT_PIN, DHT_BIT))
+	while(bit_is_set(DHT_PIN, DHT_BIT))										/* Venter på at DHT11'ereb sender data */
 	{
-		//Breaks when the DHT11 start transmitting
-		if(bit_is_clear(DHT_PIN, DHT_BIT))
-		break;
+		if(bit_is_clear(DHT_PIN, DHT_BIT))									/* Stopper while løkken når der ikke er mere at sende */
+		{			
+			break;
+		}
 	}
+	
 	int i;
 	int j;
-	//Loop for each byte
-	for (i = 0; i < 5; i++){
-		//Loop for each bit
-		for (j = 0; j < 8; j++){
+													
+	for (i = 0; i < 5; i++)													/* Looper igennem hvert enkelt byte */
+	{
+													
+		for (j = 0; j < 8; j++)												/* Looper igennem hvert enkelt bit */
+		{
 			int timer = 0;
-			//Waits for the LOW part of the transmission to end
-			while(bit_is_clear(DHT_PIN, DHT_BIT)){}
 			
-			//Begins counting the time the bit is HIGH
-			while(bit_is_set(DHT_PIN, DHT_BIT)){
+			while(bit_is_clear(DHT_PIN, DHT_BIT))							/* Mens biten er logisk LAV */
+			{
+				
+			}
+						
+			while(bit_is_set(DHT_PIN, DHT_BIT))								/* Mens biten er logisk HØJ, begynd timer */
+			{
 				_delay_us(2);
 				timer += 2;
 			}
-			//If the bit is HIGH for less than 23us the bit is Logic 0/LOW
-			if (timer < 23 || timer == NULL)
+			
+			if (timer < 23 || timer == NULL)								/* Hvis biten er logisk høj i mindre end 23 mikrosekunder */
 			{
 				array[i][j] = 0;
 			}
-			//If the bit is HIGH for more than 60us the bit is Logic 1/HIGH
-			if (timer > 60)
+			
+			if (timer > 60)													/* Hvis biten er logisk høj i mere end 60 us*/
 			{
 				array[i][j] = 1;
 			}
@@ -85,7 +92,7 @@ void DHT_Decode_Data(int (*array)[8])
 }
 
 //Converts the bytes in the array to Decimal
-int ConvertToDecimal(int (*array)[8], int byte)
+int ConvertToDecimal(int array[8], int byte)
 {
 	int multiplier = 1, output = 0;
 	//Runs through each bit in the selected byte LSB First
