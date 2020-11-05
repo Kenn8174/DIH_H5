@@ -21,12 +21,18 @@
 #include "lcd/lcd.h"
 #include "Pre_display/Pre_display.h"
 
+#include "I2C/i2cmaster.h"
+#include "DS3231/ds3231.h"
+
 
 int main(void)
 {
 	Init();
+	i2c_init();
+	init_ds3231();
 	USART_Init(115200);
 	sei();															/* Start global interrupt */
+	
 	
     while (1) 
     {
@@ -58,7 +64,7 @@ void Menu_choices(void)
 {
 	Pre_display();
 	
-	lcd_puts("Distance");
+	lcd_puts("Date");
 	lcd_gotoxy(10,0);
 	lcd_puts(": A\n");
 	lcd_puts("Temperatur: B");
@@ -73,7 +79,8 @@ void Menu_decoder(int column, int row)
 	{
 		case 44:
 		//Afstand();
-		Menu();
+		//Date();
+		main();
 		break;
 		
 		case 34:

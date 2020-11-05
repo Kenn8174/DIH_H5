@@ -144,6 +144,12 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Date\Date.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Date\Date.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Init\Init.c">
       <SubType>compile</SubType>
     </Compile>
@@ -186,6 +192,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Init" />
+    <Folder Include="Date" />
     <Folder Include="setup" />
     <Folder Include="Temperatur" />
     <Folder Include="Temperatur\DHT11" />

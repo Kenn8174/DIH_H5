@@ -34,6 +34,7 @@ LINKER_SCRIPT_DEP:=
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
 ../Init \
+../Date \
 ../setup \
 ../Temperatur \
 ../Temperatur/DHT11 \
@@ -42,6 +43,7 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../Date/Date.c \
 ../Init/Init.c \
 ../Init/USART_RS232_C_file.c \
 ../main.c \
@@ -58,6 +60,7 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+Date/Date.o \
 Init/Init.o \
 Init/USART_RS232_C_file.o \
 main.o \
@@ -67,6 +70,7 @@ Temperatur/ESP8266/ESP8266_Master.o \
 Temperatur/Temperatur.o
 
 OBJS_AS_ARGS +=  \
+Date/Date.o \
 Init/Init.o \
 Init/USART_RS232_C_file.o \
 main.o \
@@ -76,6 +80,7 @@ Temperatur/ESP8266/ESP8266_Master.o \
 Temperatur/Temperatur.o
 
 C_DEPS +=  \
+Date/Date.d \
 Init/Init.d \
 Init/USART_RS232_C_file.d \
 main.d \
@@ -85,6 +90,7 @@ Temperatur/ESP8266/ESP8266_Master.d \
 Temperatur/Temperatur.d
 
 C_DEPS_AS_ARGS +=  \
+Date/Date.d \
 Init/Init.d \
 Init/USART_RS232_C_file.d \
 main.d \
@@ -108,6 +114,13 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+Date/Date.o: ../Date/Date.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../../DIH_Library"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega2560" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 Init/Init.o: ../Init/Init.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0

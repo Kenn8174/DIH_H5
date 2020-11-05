@@ -21,6 +21,8 @@
 #include "DHT11/DHT11_Master.h"
 #include "ESP8266/ESP8266_Master.h"
 
+#include "../setup/stdio_setup.h"
+
 void Temperatur(void)
 {
 	_delay_ms(1000);
@@ -52,9 +54,16 @@ void Temperatur_choices(void)
 {
 	Pre_display();
 
-	lcd_puts("Auto: A");
+	lcd_puts("Auto update:");
+	lcd_gotoxy(13,0);
+	lcd_puts("1");
+	
 	lcd_gotoxy(0,1);
-	lcd_puts("User: B");
+	
+	lcd_puts("Read Once:");
+	lcd_gotoxy(13, 1);
+	lcd_puts("2");
+	
 	lcd_gotoxy(15, 1);
 }
 
@@ -64,13 +73,15 @@ void Temperatur_decoder(int column, int row)
 	
 	switch (choose)
 	{
-		case 44:
+		case 41:
 		//Temp_auto();
-		Temperatur_Read();
+		//Temperatur_AutoUpdate();
+		Temperatur_ReadOnce(1);
 		break;
 		
-		case 34:
+		case 42:
 		//Temp_user();
+		Temperatur_ReadOnce(0);
 		break;
 		
 		default:
@@ -79,74 +90,74 @@ void Temperatur_decoder(int column, int row)
 	}
 }
 
-void Temperatur_Read(void)
+void Temperatur_ReadOnce(int loop)
 {
-	char buffer[8];
+	unsigned int column = 1;
+	unsigned int row = 90;
 	
-	char temp[2];
 	
 	DHT_WakeUp();
 	int array[5][8];
 	if (DHT_Response())
 	{
 		DHT_Decode_Data(array);
-	}
-	
-	Pre_display();
-	
-	sprintf(buffer, "Temp: %d", ConvertToDecimal(array, 3));
-
-	lcd_puts(buffer);
-	lcd_gotoxy(0,1);
-	
-	sprintf(temp, "%d", ConvertToDecimal(array, 3));
-	
-	PushToAPI(temp);
-	
-	unsigned int column = 1;
-	unsigned int row = 90;
-	
-	while(1)
-	{
-		column = ColumnScan(column);
-		row = ReadRow();
 		
-		if (column + row == 11)
+		int temp = ConvertToDecimal(array, 3);
+		int hum = ConvertToDecimal(array, 1);
+		
+		Temperatur_display(temp, hum);
+		
+		PushToAPI(temp, hum);
+		while(1)
 		{
-			main();
+			column = ColumnScan(column);
+			row = ReadRow();
+			
+			if (column + row == 11)
+			{
+				main();
+			}
+			
 		}
-		
 	}
 }
 
-void PushToAPI(char temperatur[2])
-{	
+void PushToAPI(int temperatur, int humidity)
+{
 	char _buffer[150];
 	uint8_t Connect_Status;
-	
 	while(!ESP8266_Begin());
-	lcd_puts("test");
 	ESP8266_WIFIMode(BOTH_STATION_AND_ACCESPOINT);					/* 3 = Both (AP and STA) */
 	ESP8266_ConnectionMode(SINGLE);									/* 0 = Single; 1 = Multi */
 	ESP8266_ApplicationMode(NORMAL);								/* 0 = Normal Mode; 1 = Transperant Mode */
-	if(ESP8266_connected() == ESP8266_NOT_CONNECTED_TO_AP)			// If not connected to WIFI and API, create a connection
+	while(ESP8266_connected() == ESP8266_NOT_CONNECTED_TO_AP)			// If not connected to WIFI and API, create a connection
 	{
 		ESP8266_JoinAccessPoint(SSID, PASSWORD);
 	}
-	
-	if(Connect_Status == ESP8266_TRANSMISSION_DISCONNECTED)			// If not connected to the API
-	{
-		ESP8266_Start(0, DOMAIN, PORT);								// Connect to API
-	}
+	ESP8266_Start(0, DOMAIN, PORT);								// Connect to API
 
 	#ifdef SEND_DEMO												// Demo for sending data to an API
 	memset(_buffer, 0, 150);
 	// Sends out the url to the API with the Temp and Hum data that was read from the DHT11
-	sprintf(_buffer, "GET /update?api_key=%s&field1=%d", API_WRITE_KEY, temperatur);
-	printf(_buffer);
+	sprintf(_buffer, "GET /update?api_key=%s&field7=%i&field8=%i", API_WRITE_KEY, temperatur, humidity);
+	//printf(_buffer);
 	ESP8266_Send(_buffer);
 	_delay_ms(15000);												/* Thingspeak server delay */
 	#endif
 	
-	lcd_puts("Data sendt");
+	//lcd_puts("Data sendt");
+}
+
+void Temperatur_display(int temperatur, int humidity)
+{
+	char buffer[8];
+	Pre_display();
+	
+	sprintf(buffer, "Temp: %d", temperatur);
+
+	lcd_puts(buffer);
+	lcd_gotoxy(0,1);
+	
+	sprintf(buffer, "Hum : %d", humidity);
+	lcd_puts(buffer);
 }

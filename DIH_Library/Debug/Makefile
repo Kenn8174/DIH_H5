@@ -35,6 +35,8 @@ LINKER_SCRIPT_DEP:=
 SUBDIRS :=  \
 ../ColumnScan \
 ../lcd/ \
+../I2C \
+../DS3231 \
 ../Pre_display/ \
 ../ReadRow
 
@@ -42,6 +44,8 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../ColumnScan/ColumnScan.c \
+../DS3231/ds3231.c \
+../I2C/i2cmaster.c \
 ../lcd/lcd.c \
 ../library.c \
 ../Pre_display/Pre_display.c \
@@ -56,6 +60,8 @@ ASM_SRCS +=
 
 OBJS +=  \
 ColumnScan/ColumnScan.o \
+DS3231/ds3231.o \
+I2C/i2cmaster.o \
 lcd/lcd.o \
 library.o \
 Pre_display/Pre_display.o \
@@ -63,6 +69,8 @@ ReadRow/ReadRow.o
 
 OBJS_AS_ARGS +=  \
 ColumnScan/ColumnScan.o \
+DS3231/ds3231.o \
+I2C/i2cmaster.o \
 lcd/lcd.o \
 library.o \
 Pre_display/Pre_display.o \
@@ -70,6 +78,8 @@ ReadRow/ReadRow.o
 
 C_DEPS +=  \
 ColumnScan/ColumnScan.d \
+DS3231/ds3231.d \
+I2C/i2cmaster.d \
 lcd/lcd.d \
 library.d \
 Pre_display/Pre_display.d \
@@ -77,6 +87,8 @@ ReadRow/ReadRow.d
 
 C_DEPS_AS_ARGS +=  \
 ColumnScan/ColumnScan.d \
+DS3231/ds3231.d \
+I2C/i2cmaster.d \
 lcd/lcd.d \
 library.d \
 Pre_display/Pre_display.d \
@@ -97,6 +109,20 @@ LINKER_SCRIPT_DEP+=
 
 # AVR32/GNU C Compiler
 ColumnScan/ColumnScan.o: ../ColumnScan/ColumnScan.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega2560" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+DS3231/ds3231.o: ../DS3231/ds3231.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega2560" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+I2C/i2cmaster.o: ../I2C/i2cmaster.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega2560" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

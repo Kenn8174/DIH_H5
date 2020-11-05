@@ -25,7 +25,8 @@ Temperatur/Temperatur.d Temperatur/Temperatur.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h \
  ../../DIH_Library/ColumnScan/ColumnScan.h \
  ../../DIH_Library/ReadRow/ReadRow.h ../Temperatur/DHT11/DHT11_Master.h \
- ../Temperatur/ESP8266/ESP8266_Master.h
+ ../Temperatur/ESP8266/ESP8266_Master.h \
+ ../Temperatur/../setup/stdio_setup.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
 
@@ -80,3 +81,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../Temperatur/DHT11/DHT11_Master.h:
 
 ../Temperatur/ESP8266/ESP8266_Master.h:
+
+../Temperatur/../setup/stdio_setup.h:
