@@ -51,9 +51,9 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
 ../../DIH_Library/Debug\libDIH_Library.a(Pre_display.o)
                               Date/Date.o (Pre_display)
 ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
-                              main.o (init_ds3231)
+                              Date/Date.o (ds3231_SetDateTime)
 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
-                              main.o (i2c_init)
+                              ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o) (i2c_init)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
                               C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega2560/avr6/crtatmega2560.o (exit)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_copy_data.o)
@@ -270,6 +270,8 @@ Discarded input sections
  .text          0x00000000        0x0 ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
  .data          0x00000000        0x0 ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
  .bss           0x00000000        0x0 ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
+ .text.init_ds3231
+                0x00000000       0x20 ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
  .text.ds3231_SetDateTime
                 0x00000000       0x4a ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
  .text.ds3231_GetDateTime
@@ -278,17 +280,45 @@ Discarded input sections
                 0x00000000       0x84 ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
  .text.dec2bcd  0x00000000       0x26 ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
  .text.bcd2dec  0x00000000       0x16 ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
+ .debug_info    0x00000000      0x43a ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
+ .debug_abbrev  0x00000000      0x13c ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
+ .debug_loc     0x00000000      0x1ab ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
+ .debug_aranges
+                0x00000000       0x48 ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
+ .debug_ranges  0x00000000       0x38 ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
+ .debug_line    0x00000000      0x241 ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
+ .debug_str     0x00000000      0x248 ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
+ .comment       0x00000000       0x31 ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
+ .debug_frame   0x00000000       0xac ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
  .text          0x00000000        0x0 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
  .data          0x00000000        0x0 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
  .bss           0x00000000        0x0 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
+ .text.i2c_init
+                0x00000000       0x12 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
+ .text.i2c_start
+                0x00000000       0x12 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
  .text.i2c_start_addr
                 0x00000000       0x4e ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
  .text.i2c_start_wait
                 0x00000000       0x50 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
+ .text.i2c_stop
+                0x00000000       0x12 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
+ .text.i2c_write
+                0x00000000       0x24 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
  .text.i2c_readAck
                 0x00000000       0x16 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
  .text.i2c_readNack
                 0x00000000       0x16 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
+ .debug_info    0x00000000      0x193 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
+ .debug_abbrev  0x00000000       0xe4 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
+ .debug_loc     0x00000000      0x10c ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
+ .debug_aranges
+                0x00000000       0x58 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
+ .debug_ranges  0x00000000       0x48 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
+ .debug_line    0x00000000      0x2d8 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
+ .debug_str     0x00000000      0x1e7 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
+ .comment       0x00000000       0x31 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
+ .debug_frame   0x00000000       0xa0 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
@@ -540,7 +570,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1b48
+.text           0x00000000     0x1ace
  *(.vectors)
  .vectors       0x00000000       0xe4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega2560/avr6/crtatmega2560.o
                 0x00000000                __vector_default
@@ -676,235 +706,220 @@ END GROUP
                 0x0000020a                Menu_decoder
  .text.Menu     0x00000220       0x3a main.o
                 0x00000220                Menu
- .text.main     0x0000025a       0x18 main.o
+ .text.main     0x0000025a       0x10 main.o
                 0x0000025a                main
  .text.DHT_WakeUp
-                0x00000272       0x1c Temperatur/DHT11/DHT11_Master.o
-                0x00000272                DHT_WakeUp
+                0x0000026a       0x1c Temperatur/DHT11/DHT11_Master.o
+                0x0000026a                DHT_WakeUp
  .text.DHT_Response
-                0x0000028e       0x5a Temperatur/DHT11/DHT11_Master.o
-                0x0000028e                DHT_Response
+                0x00000286       0x5a Temperatur/DHT11/DHT11_Master.o
+                0x00000286                DHT_Response
  .text.DHT_Decode_Data
-                0x000002e8       0x70 Temperatur/DHT11/DHT11_Master.o
-                0x000002e8                DHT_Decode_Data
+                0x000002e0       0x70 Temperatur/DHT11/DHT11_Master.o
+                0x000002e0                DHT_Decode_Data
  .text.ConvertToDecimal
-                0x00000358       0x46 Temperatur/DHT11/DHT11_Master.o
-                0x00000358                ConvertToDecimal
+                0x00000350       0x46 Temperatur/DHT11/DHT11_Master.o
+                0x00000350                ConvertToDecimal
  .text.Read_Response
-                0x0000039e      0x21e Temperatur/ESP8266/ESP8266_Master.o
-                0x0000039e                Read_Response
+                0x00000396      0x21a Temperatur/ESP8266/ESP8266_Master.o
+                0x00000396                Read_Response
  .text.ESP8266_Clear
-                0x000005bc       0x20 Temperatur/ESP8266/ESP8266_Master.o
-                0x000005bc                ESP8266_Clear
+                0x000005b0       0x20 Temperatur/ESP8266/ESP8266_Master.o
+                0x000005b0                ESP8266_Clear
  .text.Start_Read_Response
-                0x000005dc       0x1e Temperatur/ESP8266/ESP8266_Master.o
-                0x000005dc                Start_Read_Response
+                0x000005d0       0x1e Temperatur/ESP8266/ESP8266_Master.o
+                0x000005d0                Start_Read_Response
  .text.WaitForExpectedResponse
-                0x000005fa       0x10 Temperatur/ESP8266/ESP8266_Master.o
-                0x000005fa                WaitForExpectedResponse
+                0x000005ee       0x10 Temperatur/ESP8266/ESP8266_Master.o
+                0x000005ee                WaitForExpectedResponse
  .text.SendATandExpectResponse
-                0x0000060a       0x26 Temperatur/ESP8266/ESP8266_Master.o
-                0x0000060a                SendATandExpectResponse
+                0x000005fe       0x26 Temperatur/ESP8266/ESP8266_Master.o
+                0x000005fe                SendATandExpectResponse
  .text.ESP8266_ApplicationMode
-                0x00000630       0x66 Temperatur/ESP8266/ESP8266_Master.o
-                0x00000630                ESP8266_ApplicationMode
+                0x00000624       0x66 Temperatur/ESP8266/ESP8266_Master.o
+                0x00000624                ESP8266_ApplicationMode
  .text.ESP8266_ConnectionMode
-                0x00000696       0x66 Temperatur/ESP8266/ESP8266_Master.o
-                0x00000696                ESP8266_ConnectionMode
+                0x0000068a       0x66 Temperatur/ESP8266/ESP8266_Master.o
+                0x0000068a                ESP8266_ConnectionMode
  .text.ESP8266_Begin
-                0x000006fc       0x28 Temperatur/ESP8266/ESP8266_Master.o
-                0x000006fc                ESP8266_Begin
+                0x000006f0       0x28 Temperatur/ESP8266/ESP8266_Master.o
+                0x000006f0                ESP8266_Begin
  .text.ESP8266_WIFIMode
-                0x00000724       0x66 Temperatur/ESP8266/ESP8266_Master.o
-                0x00000724                ESP8266_WIFIMode
+                0x00000718       0x66 Temperatur/ESP8266/ESP8266_Master.o
+                0x00000718                ESP8266_WIFIMode
  .text.ESP8266_JoinAccessPoint
-                0x0000078a       0xba Temperatur/ESP8266/ESP8266_Master.o
-                0x0000078a                ESP8266_JoinAccessPoint
+                0x0000077e       0xba Temperatur/ESP8266/ESP8266_Master.o
+                0x0000077e                ESP8266_JoinAccessPoint
  .text.ESP8266_connected
-                0x00000844       0x56 Temperatur/ESP8266/ESP8266_Master.o
-                0x00000844                ESP8266_connected
+                0x00000838       0x56 Temperatur/ESP8266/ESP8266_Master.o
+                0x00000838                ESP8266_connected
  .text.ESP8266_Start
-                0x0000089a       0xce Temperatur/ESP8266/ESP8266_Master.o
-                0x0000089a                ESP8266_Start
+                0x0000088e       0xce Temperatur/ESP8266/ESP8266_Master.o
+                0x0000088e                ESP8266_Start
  .text.ESP8266_Send
-                0x00000968       0x9e Temperatur/ESP8266/ESP8266_Master.o
-                0x00000968                ESP8266_Send
+                0x0000095c       0x9e Temperatur/ESP8266/ESP8266_Master.o
+                0x0000095c                ESP8266_Send
  .text.__vector_36
-                0x00000a06       0x78 Temperatur/ESP8266/ESP8266_Master.o
-                0x00000a06                __vector_36
+                0x000009fa       0x78 Temperatur/ESP8266/ESP8266_Master.o
+                0x000009fa                __vector_36
  .text.Temperatur_choices
-                0x00000a7e       0x34 Temperatur/Temperatur.o
-                0x00000a7e                Temperatur_choices
+                0x00000a72       0x34 Temperatur/Temperatur.o
+                0x00000a72                Temperatur_choices
  .text.PushToAPI
-                0x00000ab2       0xc8 Temperatur/Temperatur.o
-                0x00000ab2                PushToAPI
+                0x00000aa6       0xc8 Temperatur/Temperatur.o
+                0x00000aa6                PushToAPI
  .text.Temperatur_display
-                0x00000b7a       0x82 Temperatur/Temperatur.o
-                0x00000b7a                Temperatur_display
+                0x00000b6e       0x82 Temperatur/Temperatur.o
+                0x00000b6e                Temperatur_display
  .text.Temperatur_ReadOnce
-                0x00000bfc       0x84 Temperatur/Temperatur.o
-                0x00000bfc                Temperatur_ReadOnce
+                0x00000bf0       0x84 Temperatur/Temperatur.o
+                0x00000bf0                Temperatur_ReadOnce
  .text.Temperatur_decoder
-                0x00000c80       0x20 Temperatur/Temperatur.o
-                0x00000c80                Temperatur_decoder
+                0x00000c74       0x20 Temperatur/Temperatur.o
+                0x00000c74                Temperatur_decoder
  .text.Temperatur
-                0x00000ca0       0x40 Temperatur/Temperatur.o
-                0x00000ca0                Temperatur
+                0x00000c94       0x40 Temperatur/Temperatur.o
+                0x00000c94                Temperatur
  .text.avr-libc.fplib
-                0x00000ce0        0xa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(addsf3.o)
-                0x00000ce0                __subsf3
-                0x00000ce2                __addsf3
+                0x00000cd4        0xa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(addsf3.o)
+                0x00000cd4                __subsf3
+                0x00000cd6                __addsf3
  .text.avr-libc.fplib
-                0x00000cea       0xc0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(addsf3x.o)
-                0x00000d04                __addsf3x
+                0x00000cde       0xc0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(addsf3x.o)
+                0x00000cf8                __addsf3x
  .text.avr-libc.fplib
-                0x00000daa        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(divsf3.o)
-                0x00000daa                __divsf3
+                0x00000d9e        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(divsf3.o)
+                0x00000d9e                __divsf3
  .text.avr-libc.fplib
-                0x00000dae       0xcc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(divsf3x.o)
-                0x00000dc4                __divsf3x
-                0x00000dc8                __divsf3_pse
+                0x00000da2       0xcc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(divsf3x.o)
+                0x00000db8                __divsf3x
+                0x00000dbc                __divsf3_pse
  .text.avr-libc.fplib
-                0x00000e7a        0xa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fixsfsi.o)
-                0x00000e7a                __fixsfsi
+                0x00000e6e        0xa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fixsfsi.o)
+                0x00000e6e                __fixsfsi
  .text.avr-libc.fplib
-                0x00000e84       0x58 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fixunssfsi.o)
-                0x00000e84                __fixunssfsi
+                0x00000e78       0x58 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fixunssfsi.o)
+                0x00000e78                __fixunssfsi
  .text.avr-libc.fplib
-                0x00000edc       0x7a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(floatsisf.o)
-                0x00000edc                __floatunsisf
-                0x00000ee0                __floatsisf
+                0x00000ed0       0x7a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(floatsisf.o)
+                0x00000ed0                __floatunsisf
+                0x00000ed4                __floatsisf
  .text.avr-libc.fplib
-                0x00000f56        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_inf.o)
-                0x00000f56                __fp_inf
+                0x00000f4a        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_inf.o)
+                0x00000f4a                __fp_inf
  .text.avr-libc.fplib
-                0x00000f62        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_nan.o)
-                0x00000f62                __fp_nan
+                0x00000f56        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_nan.o)
+                0x00000f56                __fp_nan
  .text.avr-libc.fplib
-                0x00000f68        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_pscA.o)
-                0x00000f68                __fp_pscA
+                0x00000f5c        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_pscA.o)
+                0x00000f5c                __fp_pscA
  .text.avr-libc.fplib
-                0x00000f76        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_pscB.o)
-                0x00000f76                __fp_pscB
+                0x00000f6a        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_pscB.o)
+                0x00000f6a                __fp_pscB
  .text.avr-libc.fplib
-                0x00000f84       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_round.o)
-                0x00000f84                __fp_round
+                0x00000f78       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_round.o)
+                0x00000f78                __fp_round
  .text.avr-libc.fplib
-                0x00000fa6       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_split3.o)
-                0x00000fa6                __fp_split3
-                0x00000fb6                __fp_splitA
+                0x00000f9a       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_split3.o)
+                0x00000f9a                __fp_split3
+                0x00000faa                __fp_splitA
  .text.avr-libc.fplib
-                0x00000fea        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_zero.o)
-                0x00000fea                __fp_zero
-                0x00000fec                __fp_szero
+                0x00000fde        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_zero.o)
+                0x00000fde                __fp_zero
+                0x00000fe0                __fp_szero
  .text.avr-libc.fplib
-                0x00000ff8        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(gesf2.o)
-                0x00000ff8                __gesf2
-                0x00000ff8                __gtsf2
+                0x00000fec        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(gesf2.o)
+                0x00000fec                __gesf2
+                0x00000fec                __gtsf2
  .text.avr-libc.fplib
-                0x00001000        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(mulsf3.o)
-                0x00001000                __mulsf3
+                0x00000ff4        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(mulsf3.o)
+                0x00000ff4                __mulsf3
  .text.avr-libc.fplib
-                0x00001004       0xc2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(mulsf3x.o)
-                0x00001018                __mulsf3x
-                0x0000101c                __mulsf3_pse
+                0x00000ff8       0xc2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(mulsf3x.o)
+                0x0000100c                __mulsf3x
+                0x00001010                __mulsf3_pse
  .text.avr-libc.fplib
-                0x000010c6       0x40 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(round.o)
-                0x000010c6                round
+                0x000010ba       0x40 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(round.o)
+                0x000010ba                round
  .text.avr-libc.fplib
-                0x00001106       0x48 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
-                0x00001106                __fp_cmp
+                0x000010fa       0x48 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
+                0x000010fa                __fp_cmp
  .text.avr-libc.fplib
-                0x0000114e       0x36 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_mintl.o)
-                0x0000114e                __fp_mintl
+                0x00001142       0x36 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_mintl.o)
+                0x00001142                __fp_mintl
  .text.avr-libc.fplib
-                0x00001184       0x1c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_mpack.o)
-                0x00001184                __fp_mpack
-                0x00001188                __fp_mpack_finite
+                0x00001178       0x1c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_mpack.o)
+                0x00001178                __fp_mpack
+                0x0000117c                __fp_mpack_finite
  .text.ColumnScan
-                0x000011a0       0x6c ../../DIH_Library/Debug\libDIH_Library.a(ColumnScan.o)
-                0x000011a0                ColumnScan
- .text.ReadRow  0x0000120c       0x4a ../../DIH_Library/Debug\libDIH_Library.a(ReadRow.o)
-                0x0000120c                ReadRow
+                0x00001194       0x6c ../../DIH_Library/Debug\libDIH_Library.a(ColumnScan.o)
+                0x00001194                ColumnScan
+ .text.ReadRow  0x00001200       0x4a ../../DIH_Library/Debug\libDIH_Library.a(ReadRow.o)
+                0x00001200                ReadRow
  .text.toggle_e
-                0x00001256        0x8 ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
+                0x0000124a        0x8 ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
  .text.lcd_write
-                0x0000125e       0xcc ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
+                0x00001252       0xcc ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
  .text.lcd_read
-                0x0000132a       0x72 ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
+                0x0000131e       0x72 ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
  .text.lcd_waitbusy
-                0x0000139c       0x12 ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
+                0x00001390       0x12 ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
  .text.lcd_command
-                0x000013ae       0x10 ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
-                0x000013ae                lcd_command
+                0x000013a2       0x10 ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
+                0x000013a2                lcd_command
  .text.lcd_gotoxy
-                0x000013be       0x10 ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
-                0x000013be                lcd_gotoxy
+                0x000013b2       0x10 ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
+                0x000013b2                lcd_gotoxy
  .text.lcd_clrscr
-                0x000013ce        0x6 ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
-                0x000013ce                lcd_clrscr
+                0x000013c2        0x6 ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
+                0x000013c2                lcd_clrscr
  .text.lcd_putc
-                0x000013d4       0x24 ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
-                0x000013d4                lcd_putc
+                0x000013c8       0x24 ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
+                0x000013c8                lcd_putc
  .text.lcd_puts
-                0x000013f8       0x1e ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
-                0x000013f8                lcd_puts
+                0x000013ec       0x1e ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
+                0x000013ec                lcd_puts
  .text.lcd_init
-                0x00001416       0x7e ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
-                0x00001416                lcd_init
+                0x0000140a       0x7e ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
+                0x0000140a                lcd_init
  .text.Pre_display
-                0x00001494        0x8 ../../DIH_Library/Debug\libDIH_Library.a(Pre_display.o)
-                0x00001494                Pre_display
- .text.init_ds3231
-                0x0000149c       0x14 ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
-                0x0000149c                init_ds3231
- .text.i2c_init
-                0x000014b0       0x12 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
-                0x000014b0                i2c_init
- .text.i2c_start
-                0x000014c2       0x12 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
-                0x000014c2                i2c_start
- .text.i2c_stop
-                0x000014d4       0x12 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
-                0x000014d4                i2c_stop
- .text.i2c_write
-                0x000014e6       0x24 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
-                0x000014e6                i2c_write
+                0x00001488        0x8 ../../DIH_Library/Debug\libDIH_Library.a(Pre_display.o)
+                0x00001488                Pre_display
  .text.avr-libc
-                0x0000150a       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memcpy.o)
-                0x0000150a                memcpy
+                0x00001490       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memcpy.o)
+                0x00001490                memcpy
  .text.avr-libc
-                0x0000151c       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memmove.o)
-                0x0000151c                memmove
+                0x000014a2       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memmove.o)
+                0x000014a2                memmove
  .text.avr-libc
-                0x0000153e       0x1c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strncmp.o)
-                0x0000153e                strncmp
+                0x000014c4       0x1c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strncmp.o)
+                0x000014c4                strncmp
  .text.avr-libc
-                0x0000155a       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strstr.o)
-                0x0000155a                strstr
+                0x000014e0       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strstr.o)
+                0x000014e0                strstr
  .text.avr-libc
-                0x0000158e       0x5c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(sprintf.o)
-                0x0000158e                sprintf
+                0x00001514       0x5c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(sprintf.o)
+                0x00001514                sprintf
  .text.avr-libc
-                0x000015ea      0x3fa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o)
-                0x000015ea                vfprintf
+                0x00001570      0x3fa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o)
+                0x00001570                vfprintf
  .text.avr-libc
-                0x000019e4       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strnlen_P.o)
-                0x000019e4                strnlen_P
+                0x0000196a       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strnlen_P.o)
+                0x0000196a                strnlen_P
  .text.avr-libc
-                0x000019fa       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strnlen.o)
-                0x000019fa                strnlen
+                0x00001980       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strnlen.o)
+                0x00001980                strnlen
  .text.avr-libc
-                0x00001a10       0x78 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(fputc.o)
-                0x00001a10                fputc
+                0x00001996       0x78 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(fputc.o)
+                0x00001996                fputc
  .text.avr-libc
-                0x00001a88       0xbc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ultoa_invert.o)
-                0x00001a88                __ultoa_invert
-                0x00001b44                . = ALIGN (0x2)
+                0x00001a0e       0xbc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ultoa_invert.o)
+                0x00001a0e                __ultoa_invert
+                0x00001aca                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00001b44        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
-                0x00001b44                _exit
-                0x00001b44                exit
+ .fini9         0x00001aca        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
+                0x00001aca                _exit
+                0x00001aca                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -923,11 +938,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00001b44        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
+ .fini0         0x00001aca        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001b48                _etext = .
+                0x00001ace                _etext = .
 
-.data           0x00800200      0x1e8 load address 0x00001b48
+.data           0x00800200      0x1e8 load address 0x00001ace
                 0x00800200                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -964,8 +979,8 @@ END GROUP
  COMMON         0x00800491        0x1 ../../DIH_Library/Debug\libDIH_Library.a(ColumnScan.o)
                 0x00800491                reset_char
                 0x00800492                PROVIDE (__bss_end, .)
-                0x00001b48                __data_load_start = LOADADDR (.data)
-                0x00001d30                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00001ace                __data_load_start = LOADADDR (.data)
+                0x00001cb6                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800492        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -1024,8 +1039,6 @@ END GROUP
  .comment       0x00000030       0x31 ../../DIH_Library/Debug\libDIH_Library.a(ReadRow.o)
  .comment       0x00000030       0x31 ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
  .comment       0x00000030       0x31 ../../DIH_Library/Debug\libDIH_Library.a(Pre_display.o)
- .comment       0x00000030       0x31 ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
- .comment       0x00000030       0x31 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
  .comment       0x00000030       0x31 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(sprintf.o)
  .comment       0x00000030       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o)
                                  0x2d (size before relaxing)
@@ -1051,7 +1064,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x348
+.debug_aranges  0x00000000      0x2a8
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x20 Init/Init.o
@@ -1073,31 +1086,25 @@ END GROUP
                 0x00000200       0x88 ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
  .debug_aranges
                 0x00000288       0x20 ../../DIH_Library/Debug\libDIH_Library.a(Pre_display.o)
- .debug_aranges
-                0x000002a8       0x48 ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
- .debug_aranges
-                0x000002f0       0x58 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x3981
+.debug_info     0x00000000     0x3388
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0xbbc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega2560/avr6/crtatmega2560.o
  .debug_info    0x00000bbc       0x8a Init/Init.o
  .debug_info    0x00000c46      0x13e Init/USART_RS232_C_file.o
- .debug_info    0x00000d84      0x409 main.o
- .debug_info    0x0000118d      0x2ce Temperatur/DHT11/DHT11_Master.o
- .debug_info    0x0000145b      0xc99 Temperatur/ESP8266/ESP8266_Master.o
- .debug_info    0x000020f4      0x8c2 Temperatur/Temperatur.o
- .debug_info    0x000029b6       0xb4 ../../DIH_Library/Debug\libDIH_Library.a(ColumnScan.o)
- .debug_info    0x00002a6a      0x107 ../../DIH_Library/Debug\libDIH_Library.a(ReadRow.o)
- .debug_info    0x00002b71      0x78f ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
- .debug_info    0x00003300       0xb4 ../../DIH_Library/Debug\libDIH_Library.a(Pre_display.o)
- .debug_info    0x000033b4      0x43a ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
- .debug_info    0x000037ee      0x193 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
+ .debug_info    0x00000d84      0x3dd main.o
+ .debug_info    0x00001161      0x2ce Temperatur/DHT11/DHT11_Master.o
+ .debug_info    0x0000142f      0xc99 Temperatur/ESP8266/ESP8266_Master.o
+ .debug_info    0x000020c8      0x8c2 Temperatur/Temperatur.o
+ .debug_info    0x0000298a       0xb4 ../../DIH_Library/Debug\libDIH_Library.a(ColumnScan.o)
+ .debug_info    0x00002a3e      0x107 ../../DIH_Library/Debug\libDIH_Library.a(ReadRow.o)
+ .debug_info    0x00002b45      0x78f ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
+ .debug_info    0x000032d4       0xb4 ../../DIH_Library/Debug\libDIH_Library.a(Pre_display.o)
 
-.debug_abbrev   0x00000000     0x1aa6
+.debug_abbrev   0x00000000     0x1886
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0xb1a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega2560/avr6/crtatmega2560.o
  .debug_abbrev  0x00000b1a       0x51 Init/Init.o
@@ -1110,26 +1117,22 @@ END GROUP
  .debug_abbrev  0x000014e3       0xb7 ../../DIH_Library/Debug\libDIH_Library.a(ReadRow.o)
  .debug_abbrev  0x0000159a      0x272 ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
  .debug_abbrev  0x0000180c       0x7a ../../DIH_Library/Debug\libDIH_Library.a(Pre_display.o)
- .debug_abbrev  0x00001886      0x13c ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
- .debug_abbrev  0x000019c2       0xe4 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
 
-.debug_line     0x00000000     0x20d3
+.debug_line     0x00000000     0x1b89
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x1f9 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega2560/avr6/crtatmega2560.o
  .debug_line    0x000001f9       0xce Init/Init.o
  .debug_line    0x000002c7      0x158 Init/USART_RS232_C_file.o
- .debug_line    0x0000041f      0x2ed main.o
- .debug_line    0x0000070c      0x275 Temperatur/DHT11/DHT11_Master.o
- .debug_line    0x00000981      0x643 Temperatur/ESP8266/ESP8266_Master.o
- .debug_line    0x00000fc4      0x38d Temperatur/Temperatur.o
- .debug_line    0x00001351      0x116 ../../DIH_Library/Debug\libDIH_Library.a(ColumnScan.o)
- .debug_line    0x00001467      0x152 ../../DIH_Library/Debug\libDIH_Library.a(ReadRow.o)
- .debug_line    0x000015b9      0x58c ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
- .debug_line    0x00001b45       0x75 ../../DIH_Library/Debug\libDIH_Library.a(Pre_display.o)
- .debug_line    0x00001bba      0x241 ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
- .debug_line    0x00001dfb      0x2d8 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
+ .debug_line    0x0000041f      0x2bc main.o
+ .debug_line    0x000006db      0x275 Temperatur/DHT11/DHT11_Master.o
+ .debug_line    0x00000950      0x643 Temperatur/ESP8266/ESP8266_Master.o
+ .debug_line    0x00000f93      0x38d Temperatur/Temperatur.o
+ .debug_line    0x00001320      0x116 ../../DIH_Library/Debug\libDIH_Library.a(ColumnScan.o)
+ .debug_line    0x00001436      0x152 ../../DIH_Library/Debug\libDIH_Library.a(ReadRow.o)
+ .debug_line    0x00001588      0x58c ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
+ .debug_line    0x00001b14       0x75 ../../DIH_Library/Debug\libDIH_Library.a(Pre_display.o)
 
-.debug_frame    0x00000000      0x814
+.debug_frame    0x00000000      0x6c8
  *(.debug_frame)
  .debug_frame   0x00000000       0x24 Init/Init.o
  .debug_frame   0x00000024       0x60 Init/USART_RS232_C_file.o
@@ -1141,38 +1144,32 @@ END GROUP
  .debug_frame   0x0000054c       0x24 ../../DIH_Library/Debug\libDIH_Library.a(ReadRow.o)
  .debug_frame   0x00000570      0x134 ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
  .debug_frame   0x000006a4       0x24 ../../DIH_Library/Debug\libDIH_Library.a(Pre_display.o)
- .debug_frame   0x000006c8       0xac ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
- .debug_frame   0x00000774       0xa0 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
 
-.debug_str      0x00000000      0xf5b
+.debug_str      0x00000000      0xe1b
  *(.debug_str)
  .debug_str     0x00000000      0x3e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega2560/avr6/crtatmega2560.o
  .debug_str     0x000003e6      0x13b Init/Init.o
                                 0x179 (size before relaxing)
  .debug_str     0x00000521       0x62 Init/USART_RS232_C_file.o
                                 0x1cc (size before relaxing)
- .debug_str     0x00000583       0xf1 main.o
-                                0x25e (size before relaxing)
- .debug_str     0x00000674       0xa8 Temperatur/DHT11/DHT11_Master.o
+ .debug_str     0x00000583       0xdc main.o
+                                0x249 (size before relaxing)
+ .debug_str     0x0000065f       0xa8 Temperatur/DHT11/DHT11_Master.o
                                 0x258 (size before relaxing)
- .debug_str     0x0000071c      0x4b7 Temperatur/ESP8266/ESP8266_Master.o
+ .debug_str     0x00000707      0x4b7 Temperatur/ESP8266/ESP8266_Master.o
                                 0x6e4 (size before relaxing)
- .debug_str     0x00000bd3       0xa1 Temperatur/Temperatur.o
+ .debug_str     0x00000bbe       0xa6 Temperatur/Temperatur.o
                                 0x43a (size before relaxing)
- .debug_str     0x00000c74       0x6e ../../DIH_Library/Debug\libDIH_Library.a(ColumnScan.o)
+ .debug_str     0x00000c64       0x6e ../../DIH_Library/Debug\libDIH_Library.a(ColumnScan.o)
                                 0x1a7 (size before relaxing)
- .debug_str     0x00000ce2       0x15 ../../DIH_Library/Debug\libDIH_Library.a(ReadRow.o)
+ .debug_str     0x00000cd2       0x15 ../../DIH_Library/Debug\libDIH_Library.a(ReadRow.o)
                                 0x1d2 (size before relaxing)
- .debug_str     0x00000cf7      0x117 ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
+ .debug_str     0x00000ce7      0x117 ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
                                 0x2ab (size before relaxing)
- .debug_str     0x00000e0e       0x1d ../../DIH_Library/Debug\libDIH_Library.a(Pre_display.o)
+ .debug_str     0x00000dfe       0x1d ../../DIH_Library/Debug\libDIH_Library.a(Pre_display.o)
                                 0x19f (size before relaxing)
- .debug_str     0x00000e2b       0xf2 ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
-                                0x248 (size before relaxing)
- .debug_str     0x00000f1d       0x3e ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
-                                0x1e7 (size before relaxing)
 
-.debug_loc      0x00000000     0x1f76
+.debug_loc      0x00000000     0x1cbf
  *(.debug_loc)
  .debug_loc     0x00000000       0xf9 Init/USART_RS232_C_file.o
  .debug_loc     0x000000f9      0x187 main.o
@@ -1182,8 +1179,6 @@ END GROUP
  .debug_loc     0x000015ae       0x9e ../../DIH_Library/Debug\libDIH_Library.a(ColumnScan.o)
  .debug_loc     0x0000164c       0x48 ../../DIH_Library/Debug\libDIH_Library.a(ReadRow.o)
  .debug_loc     0x00001694      0x62b ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
- .debug_loc     0x00001cbf      0x1ab ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
- .debug_loc     0x00001e6a      0x10c ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1203,7 +1198,7 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x2e8
+.debug_ranges   0x00000000      0x268
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x10 Init/Init.o
  .debug_ranges  0x00000010       0x28 Init/USART_RS232_C_file.o
@@ -1215,8 +1210,6 @@ END GROUP
  .debug_ranges  0x000001b8       0x10 ../../DIH_Library/Debug\libDIH_Library.a(ReadRow.o)
  .debug_ranges  0x000001c8       0x90 ../../DIH_Library/Debug\libDIH_Library.a(lcd.o)
  .debug_ranges  0x00000258       0x10 ../../DIH_Library/Debug\libDIH_Library.a(Pre_display.o)
- .debug_ranges  0x00000268       0x38 ../../DIH_Library/Debug\libDIH_Library.a(ds3231.o)
- .debug_ranges  0x000002a0       0x48 ../../DIH_Library/Debug\libDIH_Library.a(i2cmaster.o)
 
 .debug_macro
  *(.debug_macro)

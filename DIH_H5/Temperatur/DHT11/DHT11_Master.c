@@ -47,7 +47,7 @@ int DHT_Response(void)
 }
 
 //Decodes the data that the DHT11 sends to the MCU
-void DHT_Decode_Data(int array[8])
+void DHT_Decode_Data(int (*array)[8])
 {
 	while(bit_is_set(DHT_PIN, DHT_BIT))										/* Venter på at DHT11'ereb sender data */
 	{
@@ -92,7 +92,7 @@ void DHT_Decode_Data(int array[8])
 }
 
 //Converts the bytes in the array to Decimal
-int ConvertToDecimal(int array[8], int byte)
+int ConvertToDecimal(int (*array)[8], int byte)
 {
 	int multiplier = 1, output = 0;
 	//Runs through each bit in the selected byte LSB First

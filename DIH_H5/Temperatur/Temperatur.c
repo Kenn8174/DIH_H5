@@ -74,13 +74,10 @@ void Temperatur_decoder(int column, int row)
 	switch (choose)
 	{
 		case 41:
-		//Temp_auto();
-		//Temperatur_AutoUpdate();
 		Temperatur_ReadOnce(1);
 		break;
 		
 		case 42:
-		//Temp_user();
 		Temperatur_ReadOnce(0);
 		break;
 		
@@ -105,9 +102,9 @@ void Temperatur_ReadOnce(int loop)
 		int temp = ConvertToDecimal(array, 3);							/* Temperaturen og fugtigheden bliver gemt i en variabel, */
 		int hum = ConvertToDecimal(array, 1);							/* men inden skal den lige konventeres til decimal */
 		
-		Temperatur_display(temp, hum);
+		Temperatur_display(temp, hum);									/* Displayer temperaturen og fugtigheden på LCD displayet */
 		
-		PushToAPI(temp, hum);
+		PushToAPI(temp, hum);											/* Smider data ud mod Thingspeaks api, så det kan vises på en graf */
 		while(1)
 		{
 			column = ColumnScan(column);
@@ -130,22 +127,17 @@ void PushToAPI(int temperatur, int humidity)
 	ESP8266_WIFIMode(BOTH_STATION_AND_ACCESPOINT);						/* 3 = Both (AP and STA) */
 	ESP8266_ConnectionMode(SINGLE);										/* 0 = Single; 1 = Multi */
 	ESP8266_ApplicationMode(NORMAL);									/* 0 = Normal Mode; 1 = Transperant Mode */
-	while(ESP8266_connected() == ESP8266_NOT_CONNECTED_TO_AP)			// If not connected to WIFI and API, create a connection
+	while(ESP8266_connected() == ESP8266_NOT_CONNECTED_TO_AP)			// Mens ESP8266 ikke er tilsluttet til nettet, prøver den at oprette en forbindelse
 	{
 		ESP8266_JoinAccessPoint(SSID, PASSWORD);
 	}
-	ESP8266_Start(0, DOMAIN, PORT);								// Connect to API
+	ESP8266_Start(0, DOMAIN, PORT);										// Connect to API
 
-	#ifdef SEND_DEMO												// Demo for sending data to an API
 	memset(_buffer, 0, 150);
-	// Sends out the url to the API with the Temp and Hum data that was read from the DHT11
+	// Sender det nødvendige data, temperatur og fugtighed, til Thingspeaks API
 	sprintf(_buffer, "GET /update?api_key=%s&field7=%i&field8=%i", API_WRITE_KEY, temperatur, humidity);
-	//printf(_buffer);
 	ESP8266_Send(_buffer);
-	_delay_ms(15000);												/* Thingspeak server delay */
-	#endif
-	
-	//lcd_puts("Data sendt");
+	_delay_ms(15000);													/* Thingspeak server delay */	
 }
 
 void Temperatur_display(int temperatur, int humidity)

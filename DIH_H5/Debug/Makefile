@@ -35,6 +35,7 @@ LINKER_SCRIPT_DEP:=
 SUBDIRS :=  \
 ../Init \
 ../Date \
+../Billeder \
 ../setup \
 ../Temperatur \
 ../Temperatur/DHT11 \

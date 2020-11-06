@@ -78,13 +78,10 @@ void Menu_decoder(int column, int row)								/* Decoder, til valg i menuen. Det
 	switch (chosen)
 	{
 		case 44:
-		//Afstand();
-		//Date();
 		main();														/* Hvis "A" knappen er valgt bliver brugeren smidt tilbage til menuen */
 		break;
 		
 		case 34:
-		//Temp_menu();
 		Temperatur();												/* Hvis "B" knappen er valgt bliver brugeren smidt til temperatur menuen */
 		break;
 		

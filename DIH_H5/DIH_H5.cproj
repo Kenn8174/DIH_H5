@@ -193,6 +193,7 @@
   <ItemGroup>
     <Folder Include="Init" />
     <Folder Include="Date" />
+    <Folder Include="Billeder" />
     <Folder Include="setup" />
     <Folder Include="Temperatur" />
     <Folder Include="Temperatur\DHT11" />
@@ -204,6 +205,11 @@
       <Project>{33d923d7-912d-4b5e-9d59-7772bc45d65e}</Project>
       <Private>True</Private>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Billeder\Flowchart.JPG">
+      <SubType>compile</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>
