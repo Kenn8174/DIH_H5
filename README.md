@@ -75,7 +75,7 @@ void Menu(void)
 	
 	Menu_choices();
 	
-	while (1)													   /* While løkke som kører indtil brugeren har entent trykket på "A" eller "B" knappen */
+	while (1)						/* While løkke som kører indtil brugeren har entent trykket på "A" eller "B" knappen */
 	{
 		column = ColumnScan(column);
 		row = ReadRow();
@@ -89,7 +89,7 @@ void Menu(void)
 ``` 
 
 ``` C
-void Menu_choices(void)												/* Viser menuen på LCD displayet */
+void Menu_choices(void)				/* Viser menuen på LCD displayet */
 {
 	Pre_display();
 	
@@ -102,18 +102,18 @@ void Menu_choices(void)												/* Viser menuen på LCD displayet */
 ```
 
 ``` C
-void Menu_decoder(int column, int row)								/* Decoder, til valg i menuen. Dette er brugt fra det tidligere projekt, hvor det var meningen at man skulle måle afstand, */
-{																	/* det kom dsv. ikke til at ske, og i dette projekt, ligesom det tidligere, bliver det kun brugt til temperatur */
+void Menu_decoder(int column, int row)			/* Decoder, til valg i menuen. Dette er brugt fra det tidligere projekt, hvor det var meningen at man skulle måle afstand, */
+{												 /* det kom dsv. ikke til at ske, og i dette projekt, ligesom det tidligere, bliver det kun brugt til temperatur */
 	unsigned int chosen = column + row;
 	
 	switch (chosen)
 	{
 		case 44:
-		main();														/* Hvis "A" knappen er valgt bliver brugeren smidt tilbage til menuen */
+		main();								/* Hvis "A" knappen er valgt bliver brugeren smidt tilbage til menuen */
 		break;
 		
 		case 34:
-		Temperatur();												/* Hvis "B" knappen er valgt bliver brugeren smidt til temperatur menuen */
+		Temperatur();						  /* Hvis "B" knappen er valgt bliver brugeren smidt til temperatur menuen */
 		break;
 		
 		default:
@@ -218,18 +218,18 @@ void Temperatur_ReadOnce(int loop)
 	unsigned int row = 90;
 	
 	
-	DHT_WakeUp();														/* Sender et signal ud til DHT11'eren for at se om der er forbindelse */
+	DHT_WakeUp();										/* Sender et signal ud til DHT11'eren for at se om der er forbindelse */
 	int array[5][8];
-	if (DHT_Response())													/* Hvis der er forbindelse til en DHT11'ere, så bliver koden i IF'en kørt */
+	if (DHT_Response())									/* Hvis der er forbindelse til en DHT11'ere, så bliver koden i IF'en kørt */
 	{
-		DHT_Decode_Data(array);											/* Henter dataen fra DHT11'eren og gemmer den i et MULTIDIMENSIONELT array */
+		DHT_Decode_Data(array);							/* Henter dataen fra DHT11'eren og gemmer den i et MULTIDIMENSIONELT array */
 		
-		int temp = ConvertToDecimal(array, 3);							/* Temperaturen og fugtigheden bliver gemt i en variabel, */
-		int hum = ConvertToDecimal(array, 1);							/* men inden skal den lige konventeres til decimal */
+		int temp = ConvertToDecimal(array, 3);			/* Temperaturen og fugtigheden bliver gemt i en variabel, */
+		int hum = ConvertToDecimal(array, 1);			/* men inden skal den lige konventeres til decimal */
 		
-		Temperatur_display(temp, hum);									/* Displayer temperaturen og fugtigheden på LCD displayet */
+		Temperatur_display(temp, hum);					/* Displayer temperaturen og fugtigheden på LCD displayet */
 		
-		PushToAPI(temp, hum);											/* Smider data ud mod Thingspeaks api, så det kan vises på en graf */
+		PushToAPI(temp, hum);							/* Smider data ud mod Thingspeaks api, så det kan vises på en graf */
 		while(1)
 		{
 			column = ColumnScan(column);
